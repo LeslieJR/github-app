@@ -8,7 +8,8 @@ class Card extends Component {
         <img src={profile.avatar_url} alt="avatar"/>
         <div className="info">
             <div className="name">{profile.name}</div>
-            <div className="company">{profile.company}</div>
+            <div>{profile.bio}</div>
+            <div>{profile.location}</div>
         </div>
       </div>
     )
