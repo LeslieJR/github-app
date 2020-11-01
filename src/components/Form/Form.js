@@ -8,14 +8,19 @@ class Form extends Component{
     }
     handleSubmit= async (e) => {
         e.preventDefault();
-        const response = await axios.get(`https://api.github.com/users/${this.state.userName}`);
-        this.props.onSubmit(response.data);
-        console.log(response.data)
+        await axios.get(`https://api.github.com/users/${this.state.userName}`)
+        .then(resp => this.props.onSubmit(resp.data))
+        .catch(err => {
+            alert(err)
+        })
+        
+      
         this.setState({
             userName: ''
         })
     }
 
+    
     render(){
         return(
             <form onSubmit={this.handleSubmit}>
